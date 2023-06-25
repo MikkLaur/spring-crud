@@ -40,19 +40,27 @@ public class TodoController {
 
     // Edit 1
     @PatchMapping("/{todoId}/edit")
-    public void editTodoSummary(@PathVariable Long todoId, @RequestBody AddTodoRequest todoRequest) {
+    public Todo editTodoSummary(@PathVariable Long todoId, @RequestBody AddTodoRequest todoRequest) {
         Todo todo = todoRepository.findById(todoId).orElseThrow(NoSuchElementException::new);
         todo.setSummary(todoRequest.getSummary());
-        todoRepository.save(todo);
+        return todoRepository.save(todo);
     }
 
     // Check todo
     @PatchMapping("/{todoId}/toggle")
-    public void toggleTodoCompleted(@PathVariable Long todoId) {
+    public Todo toggleTodoCompleted(@PathVariable Long todoId) {
         Todo todo = todoRepository.findById(todoId).orElseThrow(NoSuchElementException::new);
         todo.setCompleted(!todo.getCompleted());
-        todoRepository.save(todo);
+        return todoRepository.save(todo);
     }
     // Delete 1
+    @DeleteMapping("/{todoId}")
+    public void deleteTodo(@PathVariable Long todoId) {
+        todoRepository.deleteById(todoId);
+    }
     // Delete all
+    @DeleteMapping("")
+    public void deleteAllTodo(@PathVariable Long todoId) {
+        todoRepository.deleteAll();
+    }
 }
