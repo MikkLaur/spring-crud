@@ -21,7 +21,7 @@ In project root folder run command
 ./gradlew bootRun
 ````
 
-All the needed dependencies should be taken care by Gradle. Once server is running Swagger can be accessed from http://localhost:8080//swagger-ui.html
+All the needed dependencies should be taken care by Gradle. Once server is running Swagger can be accessed from http://localhost:8080/swagger-ui.html
 
 
 
