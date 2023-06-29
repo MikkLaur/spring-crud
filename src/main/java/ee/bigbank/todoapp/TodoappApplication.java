@@ -24,11 +24,11 @@ public class TodoappApplication implements CommandLineRunner {
 	}
 
 	private void createMockData() {
-		Todo todo = new Todo();
-		todo.setSummary("Wash dishes");
+		todoRepository.save(new Todo("Wash dishes"));
 		todoRepository.save(new Todo("Vacuum living room"));
 		todoRepository.save(new Todo("Take car to mechanic"));
-		todoRepository.save(todo);
+		todoRepository.save(new Todo("Write an amazing yet simple Todo app for Edvinas!", Boolean.TRUE));
+		todoRepository.save(new Todo("Have a successful interview with Edvinas at 10:30!"));
 	}
 
 	private void printServerStartingNotifications() {

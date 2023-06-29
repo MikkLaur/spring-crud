@@ -59,5 +59,5 @@ All the needed dependencies should be taken care by Gradle. Once server is runni
 
 ## What could be done better?  
 - **Error handling**  
-When client requests for an element which does not exist in the repository, then they're given Error 500. Proper error handling for an API is a must.
+When client requests for an element which does not exist in the repository, then they're given Error 500 instead of 404. Proper error handling for an API is a must.
 - 
