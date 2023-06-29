@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 @RequestMapping("/todos")
 public class TodoController {
 
-    private TodoRepository todoRepository;
+    private final TodoRepository todoRepository;
 
     public TodoController(TodoRepository todoRepository) {
         this.todoRepository = todoRepository;
@@ -46,7 +46,7 @@ public class TodoController {
         return todoRepository.save(todo);
     }
 
-    // Check todo
+    // Toggle to-do completed true/false
     @PatchMapping("/{todoId}/toggle")
     public Todo toggleTodoCompleted(@PathVariable Long todoId) {
         Todo todo = todoRepository.findById(todoId).orElseThrow(NoSuchElementException::new);
@@ -58,6 +58,7 @@ public class TodoController {
     public void deleteTodo(@PathVariable Long todoId) {
         todoRepository.deleteById(todoId);
     }
+
     // Delete all
     @DeleteMapping("")
     public void deleteAllTodo(@PathVariable Long todoId) {
