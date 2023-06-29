@@ -18,7 +18,7 @@ public class TodoappApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) {
 		createMockData();
 		printServerStartingNotifications();
 	}
@@ -32,7 +32,9 @@ public class TodoappApplication implements CommandLineRunner {
 	}
 
 	private void printServerStartingNotifications() {
+		System.out.println("###############################################################################");
 		System.out.println("Todo API is running and ready to take requests");
 		System.out.println("Check Swagger for endpoint documentation https://localhost:8080/swagger-ui.html");
+		System.out.println("###############################################################################");
 	}
 }
