@@ -16,6 +16,11 @@ public class Todo {
     public Todo() {
     }
 
+
+    public Todo(String summary) {
+        this.summary = summary;
+    }
+
     public Todo(String summary, Boolean completed) {
         this.summary = summary;
         this.completed = completed;
