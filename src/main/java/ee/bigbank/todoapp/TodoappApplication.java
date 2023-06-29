@@ -19,11 +19,20 @@ public class TodoappApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Todo todo = new Todo();
-		todo.setSummary("Add a todo item to list");
-		todoRepository.save(todo);
+		createMockData();
+		printServerStartingNotifications();
+	}
 
-		todo = new Todo("summary lol", Boolean.FALSE);
+	private void createMockData() {
+		Todo todo = new Todo();
+		todo.setSummary("Wash dishes");
+		todoRepository.save(new Todo("Vacuum living room"));
+		todoRepository.save(new Todo("Take car to mechanic"));
 		todoRepository.save(todo);
+	}
+
+	private void printServerStartingNotifications() {
+		System.out.println("Todo API is running and ready to take requests");
+		System.out.println("Check Swagger for endpoint documentation https://localhost:8080/swagger-ui.html");
 	}
 }
